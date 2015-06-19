@@ -1,7 +1,7 @@
 package array;
 
 public class UniqueObsPath {
-	public int uniquePathsWithObstacles(int[][] obstacleGrid) {
+	public int uniquePathsWithObstacles(int[][] obstacleGrid) { //O(n^2)
         if(obstacleGrid[0][0]==1) return 0;
         int m=obstacleGrid.length;
         int n=obstacleGrid[0].length;

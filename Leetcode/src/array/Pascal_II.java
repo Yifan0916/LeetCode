@@ -36,7 +36,7 @@ public class Pascal_II {
         res.add(1);
         if(rowIndex==0) return res;
         for(int i=1;i<=rowIndex;i++) {
-            for(int j=i-1;j>0;j--) {
+            for(int j=i-1;j>0;j--) {  //remind the start position is i-1, not rowIndex-1
             res.set(j,res.get(j)+res.get(j-1));
             }
             res.add(1); //end with 1.

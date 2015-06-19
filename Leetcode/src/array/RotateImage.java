@@ -16,22 +16,24 @@ public class RotateImage {
     }
 	//In-place!!!!
 	public static void rotate_I(int[][] matrix) {
-		int n =  matrix.length;
-        int layNum=n/2;
-        for(int layer=0;layer<layNum;layer++) {
-            int first=layer;
-            int last=n-1-layer;
-            for(int i=first;i<last;i++) {
-                int offset=i-first;
-                int temp = matrix[first][i];
-                //Left to Top.
-                matrix[first][i]=matrix[last-offset][first];
-                //Bottome to Left.
-                matrix[last-offset][first]=matrix[last][last-offset];
-                //Right to Bottom.
-                matrix[last][last-offset]=matrix[i][last];
-                //Top to Right.
-                matrix[i][last]=temp;
+		int n = matrix.length;
+        int layer = n / 2;
+        int top = 0;
+        int bot;
+        for (; top < layer; top++) { //cannot equal
+            bot = n - 1 - top;
+            int l = top;
+            int r = bot;
+            for(int i = l; i < r; i++) {//cannot equal
+                int tmp = matrix[top][i];
+                /*left->top */
+                matrix[top][i] = matrix[bot - i +l][l];
+                /* botton -> left */
+                matrix[bot - i +l][l] = matrix[bot][r - i + l];
+                /* right -> botton */
+                matrix[bot][r - i + l] = matrix[i][r];
+                /* top -> right */
+                matrix[i][r] = tmp;
             }
         }
 	}
