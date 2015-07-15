@@ -2,8 +2,8 @@ package BinaryTree;
 
 public class BalancedBinaryTree {
 	public boolean isBalanced(TreeNode root) {
-        //if(root==null) return true;
-        //dfs(root);
+        if(root==null) return true;
+        
         return dfs(root)!=-1;
     }
     public int dfs(TreeNode root){
