@@ -20,11 +20,11 @@ public class removeDup_1 {
         
     }
 	public int removeDuplicates_Update(int[] A) {
-        if(A.length==0) return 0;
+		if (A == null || A.length == 0) return 0;
         int size=0;
         for (int i=0;i<A.length;i++) {
             if (A[i]!=A[size]) {
-                A[++size]=A[i];
+                A[++size]=A[i];  //!!!!!!!!!
             }
         }
         return size+1;

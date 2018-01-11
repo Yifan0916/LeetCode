@@ -1,23 +1,22 @@
 package array;
 
 public class SearchInsertPos {
-	public int searchInsert(int[] A, int target) {
+	public int searchInsert(int[] nums, int target) {
         //Binary Search.
-        int index=0;
+		if (nums.length == 0 || nums[0] >= target) return 0;
         
-        int left=0;
-        int right=A.length-1;
+        int s = 0;
+        int e = nums.length - 1;
+        if (nums[e] < target) return e + 1;
         int mid;
-        while(left<right) {
-            mid=left+(right-left)/2;
-            if(A[mid]==target) return mid;
-            else if(A[mid]<target) left=mid+1;
-            else right=mid;
+        while (s + 1 < e) {
+            mid = s + (e -s) / 2;
+            if (nums[mid] == target) return mid;
+            else if (nums[mid] < target) s = mid;
+            else e = mid;
         }
-        //if(A[left]==target) return left;
-        if(A[right]<target) index=right+1;
-        else index=right;
-        return index; 
+        if (nums[s] == target) return s;
+        return e;
     }
 	
 	public int searchInsert_9Chapter(int[] A, int target) {
